@@ -116,6 +116,7 @@ module Yesod.Core.Handler
     , getExpires
     , deleteCookie
     , addHeader
+    , addHeaderInternal
     , setHeader
     , replaceOrAddHeader
     , setLanguage
