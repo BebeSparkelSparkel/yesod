@@ -116,7 +116,7 @@ module Yesod.Core.Handler
     , getExpires
     , deleteCookie
     , addHeader
-    , addHeaderInternal
+    , addHeader'
     , setHeader
     , replaceOrAddHeader
     , setLanguage
@@ -831,6 +831,9 @@ rfc6266Utf8FileName fileName = "attachment; filename*=UTF-8''" `mappend` decodeU
 -- @since 1.2.0
 addHeader :: MonadHandler m => Text -> Text -> m ()
 addHeader a = addHeaderInternal . Header (CI.mk $ encodeUtf8 a) . encodeUtf8
+
+addHeader' :: MonadHandler m => Header -> m ()
+addHeader' = addHeaderInternal
 
 -- | Deprecated synonym for addHeader.
 setHeader :: MonadHandler m => Text -> Text -> m ()
